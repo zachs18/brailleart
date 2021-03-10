@@ -12,5 +12,7 @@ add_library(safelib SHARED src/safelib.c)
 add_library(debuglib SHARED src/debug.c)
 
 add_executable(brailleart src/brailleart.c)
-
 target_link_libraries(brailleart pnmlib safelib debuglib)
+
+add_executable(dithering src/dithering.c)
+target_link_libraries(dithering pnmlib safelib debuglib)
