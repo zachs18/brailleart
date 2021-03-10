@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "debug.h"
 #include "safelib.h"
@@ -13,8 +14,14 @@ double intensity(const __m256d pixel) {
 }
 
 int main(int argc, char **argv) {
-	(void)argc;
-	(void)argv;
+	bool invert = false;
+	double threshold = 0.5;
+	if (argc >= 2) {
+		invert = !strcmp("invert", argv[1]);
+	}
+	if (argc >= 2) {
+		threshold = atof(argv[argc-1]);
+	}
 
 	struct pnmdata pnmdata;
 	initpnm(&pnmdata);
@@ -33,7 +40,7 @@ int main(int argc, char **argv) {
 
 	for (int y = 0; y < dimy; ++y) {
 		for (int x = 0; x < dimx; ++x) {
-			bindata[y][x] = intensity(data[y][x]) > 0.5;
+			bindata[y][x] = invert ^ (intensity(data[y][x]) > threshold);
 		}
 	}
 
