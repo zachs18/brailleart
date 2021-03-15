@@ -12,5 +12,6 @@ add_library(safelib SHARED src/safelib.c)
 add_library(debuglib SHARED src/debug.c)
 
 add_executable(brailleart src/brailleart.c)
-
 target_link_libraries(brailleart pnmlib safelib debuglib)
+
+add_executable(play_at_fps src/play_at_fps.c)
