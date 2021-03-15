@@ -113,7 +113,7 @@ int main(int argc, char **argv) {
 	const int braille_dimy = full_dimy / 4;
 
 	unsigned char (*brailledata)[braille_dimx] = scalloc(braille_dimy, braille_dimx * sizeof(**brailledata));
-
+/*
 	for (int y = 0; y < braille_dimy; ++y) {
 		for (int x = 0; x < braille_dimx; ++x) {
 			brailledata[y][x] = 
@@ -142,9 +142,9 @@ int main(int argc, char **argv) {
 		}
 		puts(brailleart_line);
 	}
-	free(brailleart_line);
+*/
+	free(colordata);
 	free(brailledata);
-	free(bindata);
 	reinitpnm(&pnmdata);
 }
 
