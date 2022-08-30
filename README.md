@@ -2,6 +2,8 @@
 
 Uses some code from my [image generator](https://github.com/zachs18/imagegen).
 
+Takes input on stdin as [ppm](https://en.wikipedia.org/wiki/Netpbm#File_formats), outputs to stdout as text.
+
 Usage:
 
 * `brailleart`: No arguments: default, black background, white foreground, 0.5 threshold
